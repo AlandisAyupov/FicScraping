@@ -1,4 +1,4 @@
-# Scrapy settings for scraper project
+# Scrapy settings for bookscraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,19 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "ficscraper"
+BOT_NAME = 'ficscraper'
 
-SPIDER_MODULES = ["ficscraper.spiders"]
-NEWSPIDER_MODULE = "ficscraper.spiders"
-
-FEEDS = {
-    'ficsdata.json': {'format': 'json'},
-}
-
+SPIDER_MODULES = ['ficscraper.spiders']
+NEWSPIDER_MODULE = 'ficscraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "scraper (+http://www.yourdomain.com)"
+#USER_AGENT = 'ficscraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -43,34 +38,33 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
-#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-#    "Accept-Language": "en",
+#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#   'Accept-Language': 'en',
 #}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-    #"ficscraper.middlewares.ScraperSpiderMiddleware": 543,
+#    'bookscraper.middlewares.FicscraperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-    # 'scraper.middlewares.ScraperDownloaderMiddleware': 543,
-    #'ficscraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+#    'bookscraper.middlewares.FicscraperDownloaderMiddleware': 543,
 #}
+
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
-#    "scrapy.extensions.telnet.TelnetConsole": None,
+#    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "ficscraper.pipelines.ScraperPipeline": 300,
-   'ficscraper.pipelines.SaveToMySQLPipeline': 400,
-} 
+#ITEM_PIPELINES = {
+#    'bookscraper.pipelines.FicscraperPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -89,11 +83,6 @@ ITEM_PIPELINES = {
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
 #HTTPCACHE_ENABLED = True
 #HTTPCACHE_EXPIRATION_SECS = 0
-#HTTPCACHE_DIR = "httpcache"
+#HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
-#HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
-
-# Set settings whose default value is deprecated to a future-proof value
-#REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
-#TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-#FEED_EXPORT_ENCODING = "utf-8"
+#HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
