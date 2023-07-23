@@ -12,6 +12,7 @@ BOT_NAME = 'ficscraper'
 SPIDER_MODULES = ['ficscraper.spiders']
 NEWSPIDER_MODULE = 'ficscraper.spiders'
 
+SCRAPEOPS_API_KEY = '4d8d5cef-40a2-44a2-bece-a35197fff705'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'ficscraper (+http://www.yourdomain.com)'
@@ -53,12 +54,19 @@ ROBOTSTXT_OBEY = True
 #DOWNLOADER_MIDDLEWARES = {
 #    'bookscraper.middlewares.FicscraperDownloaderMiddleware': 543,
 #}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
+EXTENSIONS = {
+    'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500, 
+}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
